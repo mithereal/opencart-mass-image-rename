@@ -104,7 +104,7 @@ class ControllerExtensionModulemassimgrename extends Controller
         $data['column_left'] = $this->load->controller('common/column_left');
         $data['footer'] = $this->load->controller('common/footer');
 
-        $this->response->setOutput($this->load->view('marketplace/massimgrename', $data));
+        $this->response->setOutput($this->load->view('extension/module/massimgrename', $data));
 
     }
 
@@ -115,7 +115,7 @@ class ControllerExtensionModulemassimgrename extends Controller
         $data['column_left'] = $this->load->controller('common/column_left');
         $data['footer'] = $this->load->controller('common/footer');
 
-        $this->response->setOutput($this->load->view('marketplace/massimgrename', $data));
+        $this->response->setOutput($this->load->view('extension/module/massimgrename', $data));
 
     }
 
@@ -135,7 +135,7 @@ class ControllerExtensionModulemassimgrename extends Controller
         unset($settings['path']);
 
         $this->load->model('setting/setting');
-        $this->load->language('marketplace/massimgrename');
+        $this->load->language('extension/module/massimgrename');
 
         if (!isset($settings['massimgrename_last_run']) || empty($settings['massimgrename_last_run'])) {
             $settings['massimgrename_last_run'] = $this->config->get('massimgrename_last_run');
