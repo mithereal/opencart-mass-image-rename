@@ -1,8 +1,0 @@
-
-[project]
-name=module
-description=
-base_path=./
-run_cmd=
-regenerate=true
-type=All

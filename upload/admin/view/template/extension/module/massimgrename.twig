@@ -1,0 +1,115 @@
+{{ header }}{{ column_left }}
+<div id="loader" style="padding: 40px;">
+<img src="view/image/loader.gif" /><br />
+<div id="loader_txt">
+Please wait. This may take a while...
+ </div>
+ </div>
+<div id="content">
+    <div class="page-header">
+        <div class="container-fluid">
+            <div class="pull-right">
+                <button type="button" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-success" onclick="confirm('{{ text_confirm }}') ? $('#form-event').submit() : false;"><i class="fa fa-success-o"></i></button>
+            </div>
+            <h1>{{ heading_title }}</h1>
+            <ul class="breadcrumb">
+                {% for breadcrumb in breadcrumbs %}
+                    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="container-fluid"> {% if error_warning %}
+            <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+            </div>
+        {% endif %}
+
+
+   <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form">
+   <table class="form">
+   <tr>
+   <td>
+         <label title= "{{ entry_last_run }}" description="{{ entry_last_run }}">
+             {{ entry_last_run }}
+  </label>
+   </td>
+   <td>
+    <input id="massimgrename_last_run" name="massimgrename_last_run" type="text" disabled="true" value="{{ last_run }}"> <input type="checkbox" value="reset" id="reset" name="reset"/> Reset
+    </td>
+    </tr>
+   <tr>
+   <tr>
+   <td>
+         <label title= "{{ entry_massimgrename_max_product_req }}" description="{{ entry_massimgrename_max_product_req }}">
+   <?php echo $entry_massimgrename_max_product_req }}
+  </label>
+   </td>
+   <td>
+    <input type="text" name="massimgrename_max_product_req" value="{{ massimgrename_max_product_req }}">
+    </td>
+    </tr>
+   <tr>
+   <td>
+       <label title= "{{ entry_type_select_title }}" description="{{ entry_type_select_description }}">
+           {{ entry_type_select }}
+   
+   </label>
+   <td>
+   <select name="massimgrename_mode" id="massimgrename_mode" >
+        <?php if ($mode == $text_sku) { ?>
+                  <option value="{{ text_sku }}" selected="selected">{{ text_sku }}</option>
+                  <?php } else { ?>
+                  <option value="{{ text_sku }}">{{ text_sku }}</option>
+                  <?php } ?>
+                  <?php if ($mode == $text_model) { ?>
+                  <option value="{{ text_model }}" selected="selected">{{ text_model }}</option>
+                  <?php } else { ?>
+                  <option value="{{ text_model }}">{{ text_model }}</option>
+                  <?php } ?>
+        <?php if ($mode == $text_upc) { ?>
+                  <option value="{{ text_upc }}" selected="selected">{{ text_upc }}</option>
+                  <?php } else { ?>
+                  <option value="{{ text_upc }}">{{ text_upc }}</option>
+                  <?php } ?>
+        <?php if ($mode == $text_ean) { ?>
+                  <option value="{{ text_ean }}" selected="selected">{{ text_ean }}</option>
+                  <?php } else { ?>
+                  <option value="{{ text_ean }}">{{ text_ean }}</option>
+                  <?php } ?>
+        <?php if ($mode == $text_jan) { ?>
+                  <option value="{{ text_jan }}" selected="selected">{{ text_jan }}</option>
+                  <?php } else { ?>
+                  <option value="{{ text_jan }}">{{ text_jan }}</option>
+                  <?php } ?>
+        <?php if ($mode == $text_mpn) { ?>
+                  <option value="{{ text_mpn }}" selected="selected">{{ text_mpn }}</option>
+                  <?php } else { ?>
+                  <option value="{{ text_mpn }}">{{ text_mpn }}</option>
+                  <?php } ?>
+        <?php if ($mode == $text_isbn) { ?>
+                  <option value="<?php $text_isbn }}" selected="selected">{{ text_isbn }}</option>
+                  <?php } else { ?>
+                  <option value="{{ text_isbn }}">{{ text_isbn }}</option>
+                  <?php } ?>
+        <?php if ($mode == $text_title) { ?>
+                  <option value="<?php $text_title }}" selected="selected">{{ text_title }}</option>
+                  <?php } else { ?>
+                  <option value="{{ text_name }}">{{ text_name }}</option>
+                  <?php } ?>
+        
+   </select>
+   
+   </td>
+   </tr>
+
+
+   </table>
+   
+    <div class="buttons" id="process_button"><a class="button" id="process" title="process" name="process"><span>Process </span></a></div>
+    </form>
+
+
+
+  </div>
